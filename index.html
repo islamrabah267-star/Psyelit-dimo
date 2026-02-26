@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psyelit-dimo - قاعدة بيانات DSM-5</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Psyelit-dimo</h1>
+            <p>قاعدة بيانات الاضطرابات النفسية - DSM-5</p>
+        </header>
+
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="ابحث عن اضطراب..." 
+                class="search-bar"
+            >
+            <select id="categoryFilter" class="category-filter">
+                <option value="">جميع الفئات</option>
+                <option value="اضطرابات المزاج">اضطرابات المزاج</option>
+                <option value="اضطرابات القلق">اضطرابات القلق</option>
+                <option value="اضطرابات الشخصية">اضطرابات الشخصية</option>
+            </select>
+        </div>
+
+        <div id="loadingMessage" class="loading">جاري تحميل قاعدة البيانات...</div>
+        
+        <div id="disordersContainer" class="disorders-grid">
+            <!-- سيتم إضافة الاضطرابات هنا -->
+        </div>
+
+        <div id="noResults" class="no-results" style="display: none;">
+            لم يتم العثور على أي نتائج
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
