@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 3px solid #667eea;
+}
+
+header h1 {
+    font-size: 3em;
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.search-section {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.search-bar, .category-filter {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.search-bar:focus, .category-filter:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
+}
+
+.disorders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.disorder-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.disorder-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    border-color: #667eea;
+}
+
+.disorder-card h3 {
+    color: #667eea;
+    margin-bottom: 8px;
+    font-size: 1.3em;
+}
+
+.disorder-card .english-name {
+    color: #888;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.disorder-card .category {
+    display: inline-block;
+    background: #f0f0f0;
+    color: #667eea;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    margin-bottom: 15px;
+}
+
+.disorder-card .section {
+    margin-bottom: 15px;
+}
+
+.disorder-card .section-title {
+    font-weight: bold;
+    color: #764ba2;
+    margin-bottom: 8px;
+    font-size: 0.95em;
+}
+
+.disorder-card ul {
+    list-style: none;
+    padding-right: 20px;
+}
+
+.disorder-card li {
+    padding: 5px 0;
+    color: #555;
+    position: relative;
+}
+
+.disorder-card li:before {
+    content: "✓";
+    color: #667eea;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2em;
+    color: #667eea;
+}
+
+.no-results {
+    text-align: center;
+    padding: 40px;
+    font-size: 1.2em;
+    color: #999;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .search-section {
+        flex-direction: column;
+    }
+
+    .search-bar, .category-filter {
+        width: 100%;
+    }
+
+    .disorders-grid {
+        grid-template-columns: 1fr;
+    }
+}
