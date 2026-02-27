@@ -1,44 +1,96 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Psyelit-dimo - قاعدة بيانات DSM-5</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PsyElit DSM-5</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f172a;
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #1e293b;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background-color: #334155;
+}
+
+.category {
+    color: #38bdf8;
+    font-size: 14px;
+}
+
+.loading {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 30px;
+}
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1>🧠 Psyelit-dimo</h1>
-            <p>قاعدة بيانات الاضطرابات النفسية - DSM-5</p>
-        </header>
 
-        <div class="search-section">
-            <input 
-                type="text" 
-                id="searchInput" 
-                placeholder="ابحث عن اضطراب..." 
-                class="search-bar"
-            >
-            <select id="categoryFilter" class="category-filter">
-                <option value="">جميع الفئات</option>
-                <option value="اضطرابات المزاج">اضطرابات المزاج</option>
-                <option value="اضطرابات القلق">اضطرابات القلق</option>
-                <option value="اضطرابات الشخصية">اضطرابات الشخصية</option>
-            </select>
-        </div>
+<h1>قاعدة بيانات DSM-5</h1>
 
-        <div id="loadingMessage" class="loading">جاري تحميل قاعدة البيانات...</div>
-        
-        <div id="disordersContainer" class="disorders-grid">
-            <!-- سيتم إضافة الاضطرابات هنا -->
-        </div>
+<div id="loadingMessage" class="loading">جاري التحميل...</div>
+<div id="disordersContainer"></div>
 
-        <div id="noResults" class="no-results" style="display: none;">
-            لم يتم العثور على أي نتائج
-        </div>
-    </div>
+<script>
 
-    <script src="script.js"></script>
+const disorders = [
+
+{ name: "اضطراب الاكتئاب الشديد", category: "اضطرابات المزاج" },
+{ name: "اضطراب القلق العام", category: "اضطرابات القلق" },
+{ name: "اضطراب الوسواس القهري", category: "اضطرابات القلق" },
+{ name: "اضطراب اضطراب الهلع", category: "اضطرابات القلق" },
+{ name: "اضطراب فوبيا اجتماعية", category: "اضطرابات القلق" },
+
+{ name: "اضطراب فرط الحركة ونقص الانتباه ADHD", category: "اضطرابات النمو العصبي" },
+{ name: "اضطراب طيف التوحد ASD", category: "اضطرابات النمو العصبي" },
+
+{ name: "الفصام", category: "الاضطرابات الذهانية" },
+{ name: "اضطراب فصامي الشكل", category: "الاضطرابات الذهانية" },
+
+{ name: "اضطراب الشخصية الحدية", category: "اضطرابات الشخصية" },
+{ name: "اضطراب الشخصية النرجسية", category: "اضطرابات الشخصية" },
+{ name: "اضطراب الشخصية التجنبية", category: "اضطرابات الشخصية" },
+{ name: "اضطراب الشخصية الاعتمادية", category: "اضطرابات الشخصية" },
+{ name: "اضطراب الشخصية الفصامية", category: "اضطرابات الشخصية" }
+
+];
+
+const container = document.getElementById("disordersContainer");
+const loading = document.getElementById("loadingMessage");
+
+loading.style.display = "none";
+
+disorders.forEach(d => {
+    const div = document.createElement("div");
+    div.classList.add("card");
+    div.innerHTML = `
+        <h3>${d.name}</h3>
+        <p class="category">${d.category}</p>
+    `;
+    container.appendChild(div);
+});
+
+</script>
+
 </body>
 </html>
