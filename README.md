@@ -1,2 +1,0 @@
-
-# Psyelit-dimo
